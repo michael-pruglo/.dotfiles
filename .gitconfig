@@ -1,0 +1,9 @@
+[user]
+	name = michael.p
+	email = michael.pruglo.work@gmail.com
+[alias]
+	mlog = "log --pretty=format:'%C(#425147)%h %C(#9C0D38)%ad %C(italic #CE5374)%>(12,trunc)%ar %C(#DBBBF5 noitalic)%<(14,trunc)%an  %C(#DDF0FF)%<(42,trunc)%s %C(auto)%D' --date=format:'%b%d %H:%M'"
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
