@@ -72,7 +72,9 @@ return {
 
         }
     }
+    -- investigate BLAZINGLY FAST and lazy "https://github.com/NvChad/NvChad?tab=readme-ov-file"
     -- consider: 
+    --     m4xshen/hardtime.nvim -- practice vim motions
     --     lukas-reineke/indent-blankline.nvim -- vertical lines for indents
     --     mini.sessions -- remember where you left off
 }
