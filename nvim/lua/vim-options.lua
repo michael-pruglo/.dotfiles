@@ -10,7 +10,8 @@ vim.opt.softtabstop = 4
 vim.opt.shiftwidth = 0 -- 0 = same as tabstop; used for >> <<
 vim.opt.smartindent = true
 vim.opt.scrolloff = 7
-vim.opt.foldmethod = "indent"
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
 vim.opt.foldlevelstart = 99
 vim.opt.showmode = false
 vim.opt.undofile = true
