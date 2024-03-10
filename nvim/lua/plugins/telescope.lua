@@ -13,6 +13,8 @@ return {
 			vim.keymap.set("n", "<C-p>", builtin.git_files, {})
 			vim.keymap.set("n", "<Leader>fg", builtin.live_grep, {})
 			vim.keymap.set("n", "<Leader>fb", builtin.buffers, {})
+			-- vim.keymap.set("n", "<Leader>/", builtin.current_buffer_fuzzy_find, { sorting_strategy = "ascending" })
+			vim.keymap.set("n", "<Leader>/", ":Telescope current_buffer_fuzzy_find sorting_strategy=ascending prompt_position=top<CR>", {})
 			require("telescope").setup {
 				defaults = {
 					mappings = {

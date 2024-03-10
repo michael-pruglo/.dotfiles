@@ -88,8 +88,10 @@ return {
 			cmp.setup {
 				mapping = {
 					-- I believe I heard <C-p> <C-n> are not needed here
-					["<C-d>"] = cmp.mapping.scroll_docs(-4),
 					["<C-f>"] = cmp.mapping.scroll_docs(4),
+					["<C-p>"] = cmp.mapping.scroll_docs(1),
+					["<C-n>"] = cmp.mapping.scroll_docs(-1),
+					["<C-d>"] = cmp.mapping.scroll_docs(-4),
 					["<C-e>"] = cmp.mapping.close(),
 					["<C-y>"] = cmp.mapping.confirm {
 						behavior = cmp.ConfirmBehavior.Insert,
@@ -100,6 +102,7 @@ return {
 				sources = {
 					-- Order matters: first items have higher priority
 					-- cfg options: keyword_length=5, priority=99, max_item_count=7
+					{ name = "clangd" },
 					{ name = "nvim_lsp" },
 					{ name = "path" },
 					{ name = "buffer", keyword_length = 5 },
