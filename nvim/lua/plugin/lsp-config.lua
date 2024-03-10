@@ -15,6 +15,7 @@ return {
 				"lua_ls",
 				"marksman",
 				"pylyzer",
+				-- "shellcheck",
 			}
 		}
 	},
@@ -22,15 +23,6 @@ return {
 		-- LSP client settings
 		"neovim/nvim-lspconfig",
 		config = function()
-			local lspconfig = require("lspconfig")
-			lspconfig.bashls.setup {}
-			lspconfig.clangd.setup {}
-			lspconfig.jsonls.setup {}
-			lspconfig.lua_ls.setup {}
-			lspconfig.marksman.setup {}
-			lspconfig.pylyzer.setup {}
-			-- TODO: require("lspconfig")[server_name].setup(server)  -- see kickstart
-
 			-- Buffer local mappings: active only when LSP gets attached
 			vim.api.nvim_create_autocmd("LspAttach", {
 				group = vim.api.nvim_create_augroup("UserLspConfig", {}),
@@ -69,6 +61,22 @@ return {
 					end
 				end,
 			})
+
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+			-- capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
+			local language_servers = require("lspconfig").util.available_servers() -- or list servers manually like {'gopls', 'clangd'}
+			for _, ls in ipairs(language_servers) do
+				require('lspconfig')[ls].setup {
+					capabilities = capabilities,
+					settings = {
+						Lua = {
+							diagnostics = { globals = { 'vim' } }
+						}
+					}
+					-- you can add other fields for setting up lsp server in this table
+				}
+			end
+
 		end
 	},
 	{

@@ -22,6 +22,15 @@ return {
         end
     },
     {
+        'AlexvZyl/nordic.nvim',
+        priority = 1000,
+        lazy = false,
+        config = function()
+            -- require('nordic').setup { }
+        end
+    },
+
+    {
         "nvim-tree/nvim-web-devicons",
         opts = {}
     },
@@ -52,12 +61,17 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
             options = {
-                theme = "catppuccin",
                 component_separators = { left="|", right="|" },
             }
         }
     },
+    {
+        "folke/which-key.nvim",
+        event = "VeryLazy",
+        opts = {
 
+        }
+    }
     -- consider: 
     --     lukas-reineke/indent-blankline.nvim -- vertical lines for indents
     --     mini.sessions -- remember where you left off

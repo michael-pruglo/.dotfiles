@@ -16,7 +16,6 @@ vim.opt.showmode = false
 vim.opt.undofile = true
 vim.opt.signcolumn = "yes"
 vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
 vim.opt.inccommand = "split"
 vim.opt.cursorline = true
 vim.opt.splitright = true
