@@ -65,13 +65,6 @@ return {
             }
         }
     },
-    {
-        "folke/which-key.nvim",
-        event = "VeryLazy",
-        opts = {
-
-        }
-    }
     -- investigate BLAZINGLY FAST and lazy "https://github.com/NvChad/NvChad?tab=readme-ov-file"
     -- consider: 
     --     m4xshen/hardtime.nvim -- practice vim motions
