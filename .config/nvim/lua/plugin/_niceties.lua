@@ -61,8 +61,26 @@ return {
         dependencies = { "nvim-tree/nvim-web-devicons" },
         opts = {
             options = {
-                component_separators = { left="|", right="|" },
-            }
+                component_separators = '',
+                section_separators = '',
+            },
+            sections = {
+                lualine_b = { {"branch", icon="󰊢"}, "diff", "diagnostics" },
+                lualine_c = { {"filename", path=1} },
+                lualine_x = {function()
+                    -- show attached LSP servers 
+                    local clients = vim.lsp.get_clients()
+                    if next(clients) == nil then return '' end
+                    local c = {}
+                    for _, client in pairs(clients) do table.insert(c, client.name) end
+                    return "\u{f085} " .. table.concat(c, ",")
+                end},
+                lualine_y = {"encoding", {"fileformat",icons_enabled=true,symbols={unix="LF",dos="CRLF",mac="CR"}} },
+            },
+            tabline = {
+                lualine_a = {"buffers"},
+            },
+            -- globalstatus = true, -- single statusline at bottom instead of every window
         }
     },
     -- investigate BLAZINGLY FAST and lazy "https://github.com/NvChad/NvChad?tab=readme-ov-file"
