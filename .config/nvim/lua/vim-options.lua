@@ -27,6 +27,8 @@ vim.keymap.set("i", "<C-v>", "<C-r>+")
 vim.keymap.set("i", "<C-h>", "<C-w>")  -- <C-Backspace> to delete prev word
 vim.keymap.set("i", "<C-Del>", "<C-o>dw")
 vim.keymap.set("x", "<Leader>p", "\"_dP")  -- Primeagen paste
+vim.keymap.set("n", "<C-Tab>", ":bnext<CR>")
+vim.keymap.set("n", "<C-S-Tab>", ":bprev<CR>")
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })

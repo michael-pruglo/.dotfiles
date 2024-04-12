@@ -8,6 +8,8 @@ return {
 			'WhoIsSethDaniel/mason-tool-installer.nvim',
 			{ 'j-hui/fidget.nvim', opts = {} },
 		},
+		event = { "BufReadPost", "BufNewFile" },
+		cmd = { "LspInfo", "LspInstall", "LspUninstall" },
 		config = function()
 			-- Buffer local mappings: active only when LSP gets attached
 			vim.api.nvim_create_autocmd("LspAttach", {
