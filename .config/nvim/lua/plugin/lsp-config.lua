@@ -28,6 +28,7 @@ return {
 					vim.keymap.set("n", "<F2>", vim.lsp.buf.rename, opts)
 					-- vim.keymap.set("n", "<Leader>D", vim.lsp.buf.type_definition, opts)
 					vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+					vim.keymap.set("n", "<A-o>", ":ClangdSwitchSourceHeader<CR>", opts)
 
 					-- TODO: test these, compare gd thru telescope or vim.lsp
 					local tel_builtin = require("telescope.builtin")
@@ -58,11 +59,12 @@ return {
 			capabilities = vim.tbl_deep_extend('force', capabilities, require('cmp_nvim_lsp').default_capabilities())
 			-- capabilities.textDocument.foldingRange = { dynamicRegistration = false, lineFoldingOnly = true }
 			local servers = {
-				bashls = {},
+				-- bashls = {},
 				clangd = {},
-				jsonls = {},
-				marksman = {},
-				pylyzer = {},
+				-- jsonls = {},
+				-- marksman = {},
+				-- pylyzer = {},
+				ruff_lsp = {},
 				-- shellcheck = {},
 				-- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
 				lua_ls = {

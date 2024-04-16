@@ -69,11 +69,12 @@ return {
                 lualine_c = { {"filename", path=1} },
                 lualine_x = {function()
                     -- show attached LSP servers 
-                    local clients = vim.lsp.get_clients()
+                    local curr_bufnr = vim.api.nvim_get_current_buf()
+                    local clients = vim.lsp.get_clients({bufnr = curr_bufnr})
                     if next(clients) == nil then return '' end
                     local c = {}
                     for _, client in pairs(clients) do table.insert(c, client.name) end
-                    return "\u{f085} " .. table.concat(c, ",")
+                    return "buf #" .. tostring(curr_bufnr) .. " \u{f085} " .. table.concat(c, ",")
                 end},
                 lualine_y = {"encoding", {"fileformat",icons_enabled=true,symbols={unix="LF",dos="CRLF",mac="CR"}} },
             },

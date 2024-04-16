@@ -34,6 +34,12 @@ return {
 			local telescope = require("telescope")
 			telescope.setup {
 				defaults = {
+					file_ignore_patterns = {
+						"%.log",
+						"%.out",
+						".git/",
+						".cache",
+					},
 					mappings = {
 						i = { ["<C-[>"] = "close" },
 					},
